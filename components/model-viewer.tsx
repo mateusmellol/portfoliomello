@@ -143,17 +143,23 @@ export function ModelViewer() {
     oppositeRimLight.position.set(3.4, 1.2, -3.6);
     scene.add(oppositeRimLight);
 
-    const crownLight = new THREE.PointLight("#ffffff", 7.5, 18, 2);
+    const crownLight = new THREE.DirectionalLight("#ffffff", 5.8);
     crownLight.position.set(0, 3.5, 0.65);
+    crownLight.target.position.set(0, 0, 0);
     scene.add(crownLight);
+    scene.add(crownLight.target);
 
-    const backLight = new THREE.PointLight("#ffffff", 3.2, 18, 2.2);
+    const backLight = new THREE.DirectionalLight("#ffffff", 2.4);
     backLight.position.set(0.2, 0.2, -5.4);
+    backLight.target.position.set(0, 0, 0);
     scene.add(backLight);
+    scene.add(backLight.target);
 
-    const underLight = new THREE.PointLight("#ffffff", 0.45, 12, 2);
+    const underLight = new THREE.DirectionalLight("#ffffff", 0.38);
     underLight.position.set(0, -2.1, 2.6);
+    underLight.target.position.set(0, 0, 0);
     scene.add(underLight);
+    scene.add(underLight.target);
 
     const modelGroup = new THREE.Group();
     const baseGroupPosition = modelGroup.position.clone();
