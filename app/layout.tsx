@@ -4,7 +4,7 @@ import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -24,10 +24,6 @@ export const metadata: Metadata = {
   title: "Mateus Mello | Product Designer",
   description:
     "Product Designer. Construo interfaces com foco no usuário.",
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-  },
 };
 
 export default function RootLayout({
