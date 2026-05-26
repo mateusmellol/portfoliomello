@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --color-bg: #0c0a09;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-btn-border: #696969;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color-scheme: dark;
+}
+
+canvas {
+  display: block;
+}

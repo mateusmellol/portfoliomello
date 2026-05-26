@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Next.js build
+.next/
+
+# TypeScript cache
+tsconfig.tsbuildinfo
+
+# Environment variables
+.env*
+
+# Claude Code config
+.claude/
+CLAUDE.md
+
+# Editor
+.vscode/
+
+# Project-internal docs (not for public repo)
+skills/
+cases/
+plan/
+
+# Duplicate asset
+faceportfolio2.glb
