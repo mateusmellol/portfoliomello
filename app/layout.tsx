@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -18,9 +21,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Mateus Mello — Product Designer",
+  title: "Mateus Mello | Product Designer",
   description:
     "Product Designer. Construo interfaces com foco no usuário.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -29,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={cn("dark", spaceGrotesk.variable, inter.variable, "font-sans", geist.variable)}>
       <body className="bg-[#0c0a09] text-white antialiased font-body">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
