@@ -11,7 +11,7 @@ interface TextAnimateProps {
   animation?: AnimationType;
   by?: SplitBy;
   className?: string;
-  as?: "p" | "h2" | "h3" | "span";
+  as?: "p" | "h1" | "h2" | "h3" | "span";
   delay?: number;
 }
 
