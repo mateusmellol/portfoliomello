@@ -22,5 +22,5 @@ skills/
 cases/
 plan/
 
-# Duplicate asset
-faceportfolio2.glb
+# Duplicate asset (keep the one in public/)
+/faceportfolio2.glb
