@@ -16,7 +16,7 @@ export function CaseStudies() {
         >
           Case Studies
         </TextAnimate>
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-16">
           <CaseCard
             label="Energisa | 2026"
             title="Reimaginando a Energisa para o futuro"

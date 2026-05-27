@@ -146,9 +146,11 @@ canvas {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   html {
     @apply font-sans;
   }
@@ -163,7 +165,9 @@ canvas {
     transform: scale(1);
     opacity: 1;
   }
-  75%, 100% {
+
+  75%,
+  100% {
     transform: scale(1.5);
     opacity: 0;
   }
