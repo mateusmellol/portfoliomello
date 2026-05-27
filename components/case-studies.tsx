@@ -1,5 +1,4 @@
 import { CaseCard, EnergisaMockup, NinaSegMockup } from "@/components/case-card";
-import { TextAnimate } from "@/components/text-animate";
 
 export function CaseStudies() {
   return (
@@ -8,14 +7,6 @@ export function CaseStudies() {
       className="border-b border-white/[0.19] pb-10 pt-16"
     >
       <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-[120px]">
-        <TextAnimate
-          as="h2"
-          className="mb-6 font-display text-4xl font-bold tracking-[-0.02em] text-white"
-          animation="blurInUp"
-          by="word"
-        >
-          Case Studies
-        </TextAnimate>
         <div className="flex flex-col gap-16">
           <CaseCard
             label="Energisa | 2026"

@@ -38,9 +38,9 @@ export function Header() {
           <a href="/#projetos" className="transition-opacity hover:opacity-70">
             Projetos
           </a>
-          <Link href="/sobre" className="transition-opacity hover:opacity-70">
+          <a href="/#sobre" className="transition-opacity hover:opacity-70">
             Sobre
-          </Link>
+          </a>
         </nav>
 
         {/* CTAs */}
