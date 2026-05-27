@@ -1,0 +1,75 @@
+# NinaSeg
+
+Landing page da empresa com foco em centralizar novos leads e comunicar os servicos oferecidos.
+
+**2026 · 4 semanas · Landing page · Product Designer**  
+**Escopo:** design e build
+
+## Overview
+
+A NinaSeg e uma corretora de seguros em Nova Friburgo. O projeto consistiu no redesign completo da landing page, corrigindo falhas do site anterior e construindo um canal proprio capaz de centralizar o primeiro contato com novos clientes.
+
+## Problema
+
+A NinaSeg dependia quase exclusivamente de indicacao para chegar a novos clientes. Sem um canal proprio, o crescimento era imprevisivel.
+
+## Solucao
+
+O site precisava funcionar como um canal confiavel, claro e capaz de converter um visitante que ainda nao conhece a corretora em um potencial cliente.
+
+## Decisoes
+
+### Decisao #1: Entrando no mercado independente
+
+Mapeei o mercado a partir de dois angulos. As grandes seguradoras parceiras tem sites editoriais, densos e construidos para quem ja sabe o que quer.
+
+Em Nova Friburgo, onde a Nina atua, praticamente nao existem corretores independentes com presenca digital relevante.
+
+Com base nisso, construí a pagina com uma visao mais simples, focada em leitura e compreensao. A ideia foi evitar excesso de informacao e apresentar apenas o que o cliente precisa saber nesse primeiro momento. Essa decisao levou diretamente a proxima.
+
+[video do site scrollando]
+
+### Decisao #2: Falando de seguros da maneira certa
+
+Seguros e um produto que exige muito esforco de quem contrata. Escrever no tom de uma seguradora, impessoal e orientado ao produto, reforca ainda mais essa resistencia.
+
+O tom escolhido foi humano e explicativo, sem perder a formalidade. Cada titulo foi ajustado para responder a uma duvida antes de introduzir uma nova camada de informacao. Esse ajuste tambem foi pensado com base em SEO e GEO.
+
+[imagem aqui - detalhe da secao Hero com H1 animado, com as tres variacoes do titulo em sequencia]
+
+### Decisao #3: Como estruturar a pagina?
+
+Por meio de um teste de usabilidade nao moderado com dois usuarios, os cenarios de entender o que a NinaSeg oferece e solicitar um orcamento revelaram certa consistencia nos pontos de duvida. Antes de pedir qualquer acao, o site precisava responder perguntas basicas.
+
+"Qual seguro que eu posso pedir?" - Participante 1  
+"Tenho que ler muito para saber o que escolher" - Participante 2
+
+Isso orientou a ordem das secoes, a hierarquia de informacao e quais conteudos precisavam aparecer com mais destaque.
+
+[imagem aqui - scroll longo da pagina ou visao geral da estrutura de secoes, mostrando a ordem e hierarquia]
+
+### Decisao #4: Mostrando dinamicamente como a corretora funciona
+
+Em uma entrevista curta com a cliente, perguntei o que acontece quando um cliente chega pelo formulario.
+
+A resposta dela, descrita de forma natural, pode ser resumida em pequenos passos. Isso se transformou na secao "Veja Como Funciona", com scroll-based e carregamento progressivo.
+
+Na versao anterior, essa explicacao estava no FAQ. Ao tornar o processo visivel, foi possivel reduzir o atrito de conversao no clique da CTA principal.
+
+[imagem aqui - secao HowItWorks com os 4 passos, desktop ou mobile]
+
+### Decisao #5: O caminho para pedir o orcamento
+
+O modal de orcamento foi revisado com ajustes de responsividade, transicoes, estrutura dos campos, copy e feedback em todos os estados: preenchimento, erro e conclusao.
+
+O mesmo formulario foi replicado no CTA do footer, ao final da pagina, eliminando a necessidade de rolar de volta ao topo e seguindo um UI pattern comum em landing pages.
+
+[imagem aqui - modal aberto, estado padrao e estado de conclusao, mobile]
+
+## Reflexao
+
+O principal aprendizado deste projeto foi o workflow de build. Comecar no Figma e migrar para o Figma Make gerou iteracoes que hoje resolvo muito mais rapido com a minha stack atual de trabalho.
+
+Tambem documentaria mais. Algumas decisoes se perderam no caminho, e precisei rever meus passos durante a construcao do case.
+
+Esse foi o primeiro projeto end-to-end que tive o prazer de desenhar e construir. O que ainda esta em aberto e o comportamento real dos usuarios: heatmap, scroll e cliques no CTA ainda nao foram analisados. Esses dados podem, e devem, influenciar futuras mudancas na estrutura do site.

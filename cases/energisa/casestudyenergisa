@@ -1,0 +1,58 @@
+# Energisa
+
+Redesign que transforma um site institucional em uma experiencia de marca com visao de futuro.
+
+**2026 · 4 semanas · Redesign de site · Product Designer**  
+**Escopo:** Design e desenvolvimento
+
+## Overview
+
+A Energisa e uma das maiores distribuidoras de energia do Brasil, atendendo mais de 20 milhoes de pessoas. O projeto de redesign foi feito para corrigir problemas atuais de UX e UI e reposicionar o site como uma experiencia mais alinhada ao momento da empresa.
+
+## Problema
+
+O site atual nao comunica corretamente o impacto do ecossistema da empresa e apresenta serios problemas de hierarquia. A narrativa de inovacao e energia renovavel, que a marca ja vive internamente, nao recebe enfase ao longo das secoes.
+
+## Solucao
+
+A direcao do redesign partiu de uma reorganizacao de narrativa, hierarquia e, consequentemente, arquitetura de informacao. Em paralelo, as cores foram atualizadas para combinar com a nova fase da empresa, usando tons neutros e o amarelo da marca.
+
+## Decisoes
+
+### Decisao #1: Priorizacao das secoes centradas no usuario
+
+A analise de UX revelou um problema estrutural: o site tratava tudo com o mesmo peso. Concurso de premios, FlexLab, servicos prestados e ate a historia da empresa competiam pelo mesmo espaco, sem separacao clara nem contexto.
+
+[50/50i - before/after da navegacao ou visao geral da estrutura de secoes]
+
+A reorganizacao partiu do cenario do usuario: o que resolve problemas do cliente vem primeiro, e quem a Energisa e vem depois. As acoes de autoatendimento foram reorganizadas com hierarquia e equilibrio visual para facilitar o acesso rapido. A separacao entre perfis de usuario foi clarificada, e os componentes ganharam identidade consistente com o design system do projeto.
+
+[video aqui - before/after da secao de servicos]
+
+### Decisao #2: Energia limpa sendo a protagonista
+
+FlexLab e uma plataforma de inovacao aberta e um dos produtos mais estrategicos da Energisa. No site atual, ele estava posicionado dentro do carrossel de noticias da hero. Com isso, a visao da empresa para construir um futuro energetico mais limpo acabava ficando secundaria.
+
+A hero foi refeita para manter a possibilidade de atualizacoes, mas dando prioridade a narrativa mais relevante para o momento da empresa.
+
+[imagem aqui - hero redesenhado, mostrando as duas camadas e o card de noticias]
+
+Alem disso, a secao de Ecossistema apresenta os principais atores do Grupo Energisa, tambem conectados ao progresso em direcao a flexibilidade energetica.
+
+[video aqui - secao de ecossistema scrollando]
+
+### Decisao #4: Refletindo o impacto da Energisa
+
+Os numeros da Energisa sao expressivos, mas estavam apresentados de forma flat e mais abaixo na arquitetura atual. Alem disso, nao havia tratamento visual capaz de conectar a informacao ao senso de escala e dinamica da empresa.
+
+[video aqui - secao de impacto com as barras animadas]
+
+O globo interativo na secao de trajetoria mostra o alcance geografico da empresa de uma forma que um mapa estatico nao consegue. Assim, a historia da Energisa deixa de ser apenas informativa e passa a comunicar expansao, presenca e projecao de futuro.
+
+[video aqui - globo interativo]
+
+## Reflexao
+
+Neste projeto, pude explorar bastante a construcao em 3D que planejava para o site. Em determinado momento, no entanto, precisei priorizar os recursos que realmente faziam sentido diante da performance geral da experiencia.
+
+Hoje, eu faria algumas escolhas diferentes, principalmente em relacao a hero. Entre preservar a essencia do site oficial e perseguir algumas ideias mais autorais, perdi horas preciosas que poderiam ter sido investidas em outros refinamentos.
