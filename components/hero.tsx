@@ -6,7 +6,7 @@ import { TypingAnimation } from "./typing-animation";
 
 const ModelViewer = dynamic(
   () => import("./model-viewer").then((mod) => ({ default: mod.ModelViewer })),
-  { ssr: false }
+  { ssr: false },
 );
 
 const container: Variants = {
@@ -37,6 +37,7 @@ function AnimatedWords({
   delay?: number;
 }) {
   const MotionTag = as === "h1" ? motion.h1 : motion.p;
+
   return (
     <MotionTag
       className={className}
@@ -58,7 +59,7 @@ function AnimatedWords({
           >
             {w}
           </motion.span>
-          {i < text.split(" ").length - 1 ? " " : ""}
+          {i < text.split(" ").length - 1 ? "\u00a0" : ""}
         </span>
       ))}
     </MotionTag>
@@ -72,17 +73,16 @@ export function Hero() {
       className="relative border-b border-white/10"
       style={{ minHeight: "calc(100vh - 72px)", background: "#0C0A09" }}
     >
-      {/* 3D Model — canvas ocupa toda a section, câmera centraliza em x=0 */}
-      <div className="absolute inset-0">
-        <ModelViewer />
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-y-0 left-0 right-0 pointer-events-auto md:left-1/2 md:right-auto md:w-[620px] md:-translate-x-1/2 lg:w-[700px] xl:w-[760px]">
+          <ModelViewer />
+        </div>
       </div>
 
       <div
-        className="pointer-events-none relative mx-auto w-full max-w-[1440px] px-6 lg:px-[120px]"
+        className="site-shell pointer-events-none relative"
         style={{ minHeight: "inherit" }}
       >
-
-        {/* Copy row — vertically centered, head sits between the two columns */}
         <motion.div
           className="pointer-events-none relative z-10 flex items-center justify-between text-white"
           style={{ minHeight: "inherit" }}
@@ -90,7 +90,7 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <div className="flex w-[297px] flex-col gap-2 items-start">
+          <div className="pointer-events-auto flex w-[297px] flex-col items-start gap-2 select-text">
             <AnimatedWords
               as="h1"
               text="Mateus Mello"
@@ -102,15 +102,18 @@ export function Hero() {
               delay={0.1}
             />
           </div>
-          <TypingAnimation
-            words={[
-              "Construo interfaces com foco no usuário.",
-              "Organizando meus arquivos no Figma.",
-              "Analisando os insights do teste de usabilidade.",
-            ]}
-            loop
-            className="block w-[266px] font-display text-[20px] tracking-[-0.02em] text-white/50"
-          />
+
+          <div className="pointer-events-auto select-text">
+            <TypingAnimation
+              words={[
+                "Construo interfaces com foco no usuário.",
+                "Organizando meus arquivos no Figma.",
+                "Analisando os insights do teste de usabilidade.",
+              ]}
+              loop
+              className="block w-[266px] font-display text-[20px] tracking-[-0.02em] text-white/50"
+            />
+          </div>
         </motion.div>
       </div>
     </section>

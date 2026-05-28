@@ -6,7 +6,7 @@ export function About() {
       id="sobre"
       className="border-b border-white/[0.19] pb-10 pt-16"
     >
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-[22px] px-6 md:px-12 lg:px-[120px]">
+      <div className="site-shell flex flex-col gap-[22px]">
         <TextAnimate
           as="h2"
           className="font-display text-4xl font-bold tracking-[-0.02em] text-white"

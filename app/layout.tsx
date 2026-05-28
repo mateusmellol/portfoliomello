@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Geist } from "next/font/google";
+import { Space_Grotesk, Inter, Geist, Sora } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "@/components/smooth-scroll";
 import { cn } from "@/lib/utils";
@@ -20,6 +20,13 @@ const inter = Inter({
   display: "swap",
 });
 
+const sora = Sora({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-wordmark",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Mateus Mello | Product Designer",
   description:
@@ -32,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={cn("dark", spaceGrotesk.variable, inter.variable, "font-sans", geist.variable)}>
+    <html lang="pt-BR" className={cn("dark", spaceGrotesk.variable, inter.variable, sora.variable, "font-sans", geist.variable)}>
       <body className="bg-[#0c0a09] text-white antialiased font-body">
         <SmoothScroll>{children}</SmoothScroll>
       </body>

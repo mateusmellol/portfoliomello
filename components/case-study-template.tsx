@@ -23,7 +23,7 @@ export function CaseStudyTemplate({
 
   return (
     <main className="bg-[#0c0a09] text-white">
-      <div className="mx-auto max-w-[1440px] px-6 pb-24 md:px-12 lg:px-[120px]">
+      <div className="site-shell pb-24">
         <Link
           href="/#projetos"
           className="mb-6 mt-8 inline-flex items-center gap-2 font-display text-sm text-white/60 transition-colors hover:text-white"

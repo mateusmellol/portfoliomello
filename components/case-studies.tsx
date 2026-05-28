@@ -6,7 +6,7 @@ export function CaseStudies() {
       id="projetos"
       className="border-b border-white/[0.19] pb-10 pt-16"
     >
-      <div className="mx-auto max-w-[1440px] px-6 md:px-12 lg:px-[120px]">
+      <div className="site-shell">
         <div className="flex flex-col gap-16">
           <CaseCard
             label="Energisa | 2026"
