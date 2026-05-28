@@ -24,7 +24,7 @@ export function Header() {
                 <span className="relative inline-flex rounded-full h-[6px] w-[6px] bg-green-500"></span>
               </span>
               <span className="font-display text-[14px] leading-normal tracking-[-0.02em] text-white/70">
-                Procurando oportunidades
+                Disponível
               </span>
             </div>
           </div>
