@@ -49,15 +49,9 @@ export function Header() {
             href="/curriculo.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-white px-4 py-2 font-display text-base font-medium tracking-[-0.02em] text-white transition-opacity hover:opacity-80"
-          >
-            Currículo
-          </a>
-          <a
-            href="#contato"
             className="rounded-lg bg-white px-4 py-2 font-display text-base font-medium tracking-[-0.02em] text-[#191919] transition-opacity hover:opacity-90"
           >
-            Contato
+            Currículo
           </a>
         </div>
       </div>
