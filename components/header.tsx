@@ -46,7 +46,9 @@ export function Header() {
         {/* CTAs */}
         <div className="hidden items-center gap-2 md:flex">
           <a
-            href="#"
+            href="/curriculo.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-lg border border-white px-4 py-2 font-display text-base font-medium tracking-[-0.02em] text-white transition-opacity hover:opacity-80"
           >
             Currículo

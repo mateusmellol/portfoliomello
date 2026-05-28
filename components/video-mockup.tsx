@@ -59,14 +59,12 @@ export function VideoMockup({ videoSrc, cropBottom = 0 }: VideoMockupProps) {
       }
     };
 
-    // Seek back just before the end — canvas holds last frame during seek
-    const handleTimeUpdate = () => {
-      if (video.duration && video.currentTime >= video.duration - 0.05) {
-        video.currentTime = 0;
-      }
+    const handleEnded = () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
     };
 
-    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended', handleEnded);
     video.addEventListener('playing', startDrawing);
 
     const observer = new IntersectionObserver(
@@ -86,7 +84,7 @@ export function VideoMockup({ videoSrc, cropBottom = 0 }: VideoMockupProps) {
 
     return () => {
       stopDrawing();
-      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended', handleEnded);
       video.removeEventListener('playing', startDrawing);
       observer.disconnect();
     };
@@ -123,6 +121,7 @@ export function VideoMockup({ videoSrc, cropBottom = 0 }: VideoMockupProps) {
             className="absolute opacity-0 pointer-events-none"
             style={{ width: 1, height: 1 }}
             muted
+            loop
             playsInline
             preload="none"
           >
