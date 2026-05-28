@@ -25,6 +25,7 @@ export function ModelViewer() {
       return;
     }
 
+    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
     let disposed = false;
 
     const scene = new THREE.Scene();
@@ -46,7 +47,7 @@ export function ModelViewer() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.12;
     renderer.domElement.style.cursor = "inherit";
-    renderer.domElement.style.touchAction = "none";
+    renderer.domElement.style.touchAction = isTouchDevice ? "auto" : "none";
 
     container.innerHTML = "";
     container.appendChild(renderer.domElement);
@@ -505,22 +506,29 @@ export function ModelViewer() {
 
     handleResize();
     window.addEventListener("resize", handleResize);
-    container.addEventListener("pointerdown", handlePointerDown);
-    container.addEventListener("pointermove", handlePointerMove);
-    container.addEventListener("pointerup", handlePointerUp);
-    container.addEventListener("pointercancel", handlePointerUp);
-    container.addEventListener("pointerleave", handlePointerLeave);
+
+    if (!isTouchDevice) {
+      container.addEventListener("pointerdown", handlePointerDown);
+      container.addEventListener("pointermove", handlePointerMove);
+      container.addEventListener("pointerup", handlePointerUp);
+      container.addEventListener("pointercancel", handlePointerUp);
+      container.addEventListener("pointerleave", handlePointerLeave);
+    }
+
     animate();
 
     return () => {
       disposed = true;
       window.cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
-      container.removeEventListener("pointerdown", handlePointerDown);
-      container.removeEventListener("pointermove", handlePointerMove);
-      container.removeEventListener("pointerup", handlePointerUp);
-      container.removeEventListener("pointercancel", handlePointerUp);
-      container.removeEventListener("pointerleave", handlePointerLeave);
+
+      if (!isTouchDevice) {
+        container.removeEventListener("pointerdown", handlePointerDown);
+        container.removeEventListener("pointermove", handlePointerMove);
+        container.removeEventListener("pointerup", handlePointerUp);
+        container.removeEventListener("pointercancel", handlePointerUp);
+        container.removeEventListener("pointerleave", handlePointerLeave);
+      }
 
       scene.traverse((object) => {
         const mesh = object as THREE.Mesh;
@@ -549,7 +557,7 @@ export function ModelViewer() {
         width: "100%",
         height: "100%",
         position: "relative",
-        touchAction: "none",
+        touchAction: "auto",
       }}
       aria-label="3D model preview"
     >

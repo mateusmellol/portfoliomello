@@ -71,10 +71,10 @@ export function Hero() {
     <section
       id="home"
       className="relative border-b border-white/10"
-      style={{ minHeight: "calc(100vh - 72px)", background: "#0C0A09" }}
+      style={{ minHeight: "calc(100vh - 72px)", background: "#0C0A09", overflow: "hidden" }}
     >
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-y-0 left-0 right-0 pointer-events-auto md:left-1/2 md:right-auto md:w-[620px] md:-translate-x-1/2 lg:w-[700px] xl:w-[760px]">
+        <div className="absolute inset-y-0 left-0 right-0 pointer-events-none -translate-y-[15%] md:translate-y-0 md:pointer-events-auto md:left-1/2 md:right-auto md:w-[620px] md:-translate-x-1/2 lg:w-[700px] xl:w-[760px]">
           <ModelViewer />
         </div>
       </div>
@@ -84,13 +84,13 @@ export function Hero() {
         style={{ minHeight: "inherit" }}
       >
         <motion.div
-          className="pointer-events-none relative z-10 flex items-center justify-between text-white"
+          className="pointer-events-none relative z-10 flex flex-col items-start justify-end gap-4 pb-12 text-white -translate-y-[7%] md:translate-y-0 md:flex-row md:items-center md:justify-between md:pb-0"
           style={{ minHeight: "inherit" }}
           variants={container}
           initial="hidden"
           animate="visible"
         >
-          <div className="pointer-events-auto flex w-[297px] flex-col items-start gap-2 select-text">
+          <div className="pointer-events-auto flex w-full flex-col items-start gap-2 select-text md:w-[297px]">
             <AnimatedWords
               as="h1"
               text="Mateus Mello"
@@ -111,7 +111,7 @@ export function Hero() {
                 "Analisando os insights do teste de usabilidade.",
               ]}
               loop
-              className="block w-[266px] font-display text-[20px] tracking-[-0.02em] text-white/50"
+              className="block w-full font-display text-[20px] tracking-[-0.02em] text-white/50 md:w-[266px]"
             />
           </div>
         </motion.div>

@@ -44,7 +44,7 @@ export function Header() {
         </nav>
 
         {/* CTAs */}
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="flex items-center gap-2">
           <a
             href="/curriculo.pdf"
             target="_blank"
