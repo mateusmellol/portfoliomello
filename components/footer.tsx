@@ -67,7 +67,7 @@ export function StickyFooter({ className, ...props }: StickyFooterProps) {
 					className="sticky h-full overflow-y-auto"
 					style={{ top: `calc(100vh - ${FOOTER_HEIGHT}px)` }}
 				>
-					<div className="site-shell relative flex size-full flex-col justify-between gap-8 border-t border-white/[0.19] py-6">
+					<div className="site-shell relative flex size-full flex-col justify-between gap-8 border-t border-white/[0.19] py-6 font-wordmark">
 						<div
 							aria-hidden
 							className="absolute inset-0 isolate z-0 contain-strict"

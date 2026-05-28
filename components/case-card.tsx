@@ -47,7 +47,7 @@ export function CaseCard({
     <article className="relative flex flex-col items-center justify-between gap-8 overflow-hidden lg:h-[390px] lg:flex-row">
       <div className="flex w-full flex-col gap-4 lg:w-[452px]">
         <TextAnimate
-          className="font-body text-sm text-white/50"
+          className="font-wordmark text-sm text-white/50"
           as="p"
           animation="blurInUp"
           by="word"
@@ -55,7 +55,7 @@ export function CaseCard({
           {label}
         </TextAnimate>
         <TextAnimate
-          className="font-body text-xl text-white"
+          className="font-wordmark text-xl text-white"
           as="p"
           animation="blurInUp"
           by="word"
@@ -64,7 +64,7 @@ export function CaseCard({
           {title}
         </TextAnimate>
         <TextAnimate
-          className="font-body text-base text-white/80"
+          className="font-wordmark text-base text-white/80"
           as="p"
           animation="blurInUp"
           by="word"
