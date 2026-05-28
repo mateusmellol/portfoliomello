@@ -45,7 +45,7 @@ export function ModelViewer() {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.12;
-    renderer.domElement.style.cursor = "grab";
+    renderer.domElement.style.cursor = "inherit";
     renderer.domElement.style.touchAction = "none";
 
     container.innerHTML = "";
@@ -172,6 +172,9 @@ export function ModelViewer() {
     const zeroGravityAxis = new THREE.Vector3(0, 1, 0);
     const userYawAxis = new THREE.Vector3(0, 1, 0);
     const userPitchAxis = new THREE.Vector3(1, 0, 0);
+    const pointer = new THREE.Vector2();
+    const raycaster = new THREE.Raycaster();
+    const modelMeshes: THREE.Mesh[] = [];
     const clock = new THREE.Clock();
     let animationFrameId = 0;
     let userTargetYaw = 0;
@@ -224,9 +227,6 @@ export function ModelViewer() {
         }
 
         const model = gltf.scene;
-        let meshCount = 0;
-        const glassMeshes: THREE.Mesh[] = [];
-
         model.traverse((object) => {
           const mesh = object as THREE.Mesh;
 
@@ -234,8 +234,7 @@ export function ModelViewer() {
             return;
           }
 
-          meshCount += 1;
-          glassMeshes.push(mesh);
+          modelMeshes.push(mesh);
 
           mesh.castShadow = true;
           mesh.receiveShadow = true;
@@ -270,7 +269,7 @@ export function ModelViewer() {
           });
         });
 
-        glassMeshes.forEach((mesh) => {
+        modelMeshes.forEach((mesh) => {
           const glowShell = new THREE.Mesh(
             mesh.geometry,
             new THREE.ShaderMaterial({
@@ -431,11 +430,32 @@ export function ModelViewer() {
       renderScene();
     };
 
+    const pointerHitsModel = (event: PointerEvent) => {
+      if (modelMeshes.length === 0) {
+        return false;
+      }
+
+      const bounds = renderer.domElement.getBoundingClientRect();
+
+      pointer.x = ((event.clientX - bounds.left) / bounds.width) * 2 - 1;
+      pointer.y = -((event.clientY - bounds.top) / bounds.height) * 2 + 1;
+
+      modelGroup.updateMatrixWorld(true);
+      raycaster.setFromCamera(pointer, camera);
+
+      return raycaster.intersectObjects(modelMeshes, false).length > 0;
+    };
+
     const handlePointerDown = (event: PointerEvent) => {
       if (activePointerId !== null) {
         return;
       }
 
+      if (!pointerHitsModel(event)) {
+        return;
+      }
+
+      event.preventDefault();
       activePointerId = event.pointerId;
       lastPointerX = event.clientX;
       lastPointerY = event.clientY;
@@ -445,6 +465,7 @@ export function ModelViewer() {
 
     const handlePointerMove = (event: PointerEvent) => {
       if (event.pointerId !== activePointerId) {
+        container.style.cursor = pointerHitsModel(event) ? "grab" : "";
         return;
       }
 
@@ -467,11 +488,19 @@ export function ModelViewer() {
       }
 
       activePointerId = null;
-      container.style.cursor = "grab";
+      container.style.cursor = pointerHitsModel(event) ? "grab" : "";
 
       if (container.hasPointerCapture(event.pointerId)) {
         container.releasePointerCapture(event.pointerId);
       }
+    };
+
+    const handlePointerLeave = (event: PointerEvent) => {
+      if (event.pointerId === activePointerId) {
+        return;
+      }
+
+      container.style.cursor = "";
     };
 
     handleResize();
@@ -480,6 +509,7 @@ export function ModelViewer() {
     container.addEventListener("pointermove", handlePointerMove);
     container.addEventListener("pointerup", handlePointerUp);
     container.addEventListener("pointercancel", handlePointerUp);
+    container.addEventListener("pointerleave", handlePointerLeave);
     animate();
 
     return () => {
@@ -490,6 +520,7 @@ export function ModelViewer() {
       container.removeEventListener("pointermove", handlePointerMove);
       container.removeEventListener("pointerup", handlePointerUp);
       container.removeEventListener("pointercancel", handlePointerUp);
+      container.removeEventListener("pointerleave", handlePointerLeave);
 
       scene.traverse((object) => {
         const mesh = object as THREE.Mesh;
@@ -518,7 +549,6 @@ export function ModelViewer() {
         width: "100%",
         height: "100%",
         position: "relative",
-        cursor: "grab",
         touchAction: "none",
       }}
       aria-label="3D model preview"
