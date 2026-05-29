@@ -15,6 +15,11 @@ interface VideoMockupProps {
  * the last painted frame while the video seeks back to t=0, so there is never
  * a blank frame. RAF loop runs only while the component is in the viewport.
  *
+ * Loop strategy: `loop` attribute on <video> lets the browser loop natively
+ * (seamless, no black flash). `handleEnded` is a fallback in case the browser
+ * fires `ended` instead of looping (e.g. some mobile browsers ignore `loop`
+ * on muted videos).
+ *
  * Pixel positions derived from Figma node 104-212 (container 996×597):
  *   screen area → left 202px  top 107px  w 593px  h 359px
  *   as % of container → left 20.28%  top 17.92%  w 59.54%  h 60.13%
@@ -59,6 +64,7 @@ export function VideoMockup({ videoSrc, cropBottom = 0 }: VideoMockupProps) {
       }
     };
 
+    // Fallback: if browser fires `ended` despite `loop` attribute, restart manually
     const handleEnded = () => {
       video.currentTime = 0;
       video.play().catch(() => {});
