@@ -97,7 +97,7 @@ export function Hero() {
               className="w-full font-display text-[48px] font-normal leading-[1.2] tracking-[-0.02em]"
             />
             <AnimatedWords
-              text="Product Designer, RJ"
+              text="UX UI Designer, RJ"
               className="w-full font-display text-[20px] tracking-[-0.02em] text-white/50"
               delay={0.1}
             />

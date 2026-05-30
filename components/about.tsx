@@ -24,7 +24,7 @@ export function About() {
         <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
           <div className="flex flex-col gap-6 text-base tracking-[-0.02em] text-white/70 max-w-[880px]">
             <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={0.1}>
-              Product Designer com base em comunicação visual, combinando sensibilidade estética e pensamento estratégico para criar interfaces que fazem sentido para os usuários e para os stakeholders.
+              UX UI Designer com base em comunicação visual, combinando sensibilidade estética e pensamento estratégico para criar interfaces que fazem sentido para os usuários e para os stakeholders.
             </TextAnimate>
             <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={0.15}>
               Além do cuidado com o design e craft, me importo com a compreensão do problema a fundo através de processos de UX research, me movendo a tomar decisões melhores a cada produto que desenvolvo.
