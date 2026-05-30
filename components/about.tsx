@@ -19,7 +19,7 @@ export function About() {
           animation="blurInUp"
           by="word"
         >
-          Salve, eu sou o Mateus
+          Olá, eu sou o Mateus
         </TextAnimate>
         <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
           <div className="flex flex-col gap-6 text-base tracking-[-0.02em] text-white/70 max-w-[880px]">
