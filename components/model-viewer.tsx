@@ -41,7 +41,7 @@ export function ModelViewer() {
       powerPreference: "high-performance",
     });
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -209,29 +209,14 @@ export function ModelViewer() {
         .multiply(zeroGravityRotation);
     };
 
-    let lastRenderTime = 0;
-    const FRAME_INTERVAL = 1000 / 30; // 30fps cap
-
     const renderScene = () => {
       applyDisplayMotion();
       renderer.render(scene, camera);
     };
 
-    const startLoop = () => {
-      if (animationFrameId !== 0) return;
-      const loop = (time: number) => {
-        if (time - lastRenderTime >= FRAME_INTERVAL) {
-          lastRenderTime = time;
-          renderScene();
-        }
-        animationFrameId = window.requestAnimationFrame(loop);
-      };
-      animationFrameId = window.requestAnimationFrame(loop);
-    };
-
-    const stopLoop = () => {
-      window.cancelAnimationFrame(animationFrameId);
-      animationFrameId = 0;
+    const animate = () => {
+      renderScene();
+      animationFrameId = window.requestAnimationFrame(animate);
     };
 
     const loader = new GLTFLoader();
@@ -530,22 +515,11 @@ export function ModelViewer() {
       container.addEventListener("pointerleave", handlePointerLeave);
     }
 
-    const heroObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          startLoop();
-        } else {
-          stopLoop();
-        }
-      },
-      { threshold: 0.01 },
-    );
-    heroObserver.observe(container);
+    animate();
 
     return () => {
       disposed = true;
-      stopLoop();
-      heroObserver.disconnect();
+      window.cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", handleResize);
 
       if (!isTouchDevice) {
