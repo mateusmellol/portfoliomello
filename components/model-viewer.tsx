@@ -41,7 +41,7 @@ export function ModelViewer() {
       powerPreference: "high-performance",
     });
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -214,9 +214,18 @@ export function ModelViewer() {
       renderer.render(scene, camera);
     };
 
-    const animate = () => {
-      renderScene();
-      animationFrameId = window.requestAnimationFrame(animate);
+    const startLoop = () => {
+      if (animationFrameId !== 0) return;
+      const loop = () => {
+        renderScene();
+        animationFrameId = window.requestAnimationFrame(loop);
+      };
+      animationFrameId = window.requestAnimationFrame(loop);
+    };
+
+    const stopLoop = () => {
+      window.cancelAnimationFrame(animationFrameId);
+      animationFrameId = 0;
     };
 
     const loader = new GLTFLoader();
@@ -515,11 +524,22 @@ export function ModelViewer() {
       container.addEventListener("pointerleave", handlePointerLeave);
     }
 
-    animate();
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startLoop();
+        } else {
+          stopLoop();
+        }
+      },
+      { threshold: 0.01 },
+    );
+    heroObserver.observe(container);
 
     return () => {
       disposed = true;
-      window.cancelAnimationFrame(animationFrameId);
+      stopLoop();
+      heroObserver.disconnect();
       window.removeEventListener("resize", handleResize);
 
       if (!isTouchDevice) {
