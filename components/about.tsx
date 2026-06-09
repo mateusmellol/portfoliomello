@@ -18,18 +18,22 @@ export function About() {
           className="font-wordmark text-[20px] font-normal tracking-[-0.02em] text-white"
           animation="blurInUp"
           by="word"
+          delay={0}
         >
           Olá, eu sou o Mateus
         </TextAnimate>
         <div className="flex flex-col lg:flex-row items-start justify-between gap-10">
           <div className="flex flex-col gap-6 text-base tracking-[-0.02em] text-white/70 max-w-[880px]">
-            <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={0.1}>
+            {/* P1: starts after header (5 words × 0.02 + 0.45 ≈ 0.55s) */}
+            <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={0.55}>
               UX UI Designer com base em comunicação visual, combinando sensibilidade estética e pensamento estratégico para criar interfaces que fazem sentido para os usuários e para os stakeholders.
             </TextAnimate>
-            <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={0.15}>
+            {/* P2: starts after P1 (0.55 + 30 words × 0.02 + 0.45 ≈ 1.60s) */}
+            <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={1.6}>
               Além do cuidado com o design e craft, me importo com a compreensão do problema a fundo através de processos de UX research, me movendo a tomar decisões melhores a cada produto que desenvolvo.
             </TextAnimate>
-            <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={0.2}>
+            {/* P3: starts after P2 (1.60 + 33 words × 0.02 + 0.45 ≈ 2.71s) */}
+            <TextAnimate className="font-wordmark" animation="blurInUp" by="word" delay={2.71}>
               Atualmente cursando Estudos de Mídia na UFF, onde construo minha base em pesquisa, comunicação e design.
             </TextAnimate>
           </div>
