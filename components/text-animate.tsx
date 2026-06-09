@@ -17,8 +17,8 @@ interface TextAnimateProps {
 
 const animations: Record<AnimationType, { hidden: Record<string, string | number>; visible: Record<string, string | number> }> = {
   blurInUp: {
-    hidden: { opacity: 0, filter: "blur(8px)", y: 8 },
-    visible: { opacity: 1, filter: "blur(0px)", y: 0 },
+    hidden: { opacity: 0, y: 12 },
+    visible: { opacity: 1, y: 0 },
   },
   fadeIn: {
     hidden: { opacity: 0 },
@@ -54,9 +54,9 @@ export function TextAnimate({
           initial={hidden}
           animate={inView ? visible : hidden}
           transition={{
-            duration: 0.4,
+            duration: 0.45,
             delay: delay + i * 0.02,
-            ease: [0.25, 0.4, 0.25, 1],
+            ease: [0.22, 1, 0.36, 1],
           }}
           style={{ display: "inline-block", whiteSpace: segment.trim() === "" ? "pre" : undefined }}
         >

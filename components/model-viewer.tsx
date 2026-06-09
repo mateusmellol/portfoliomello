@@ -41,7 +41,8 @@ export function ModelViewer() {
       powerPreference: "high-performance",
     });
 
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    const isMobile = window.innerWidth < 768;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.0 : 1.5));
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -524,6 +525,15 @@ export function ModelViewer() {
       container.addEventListener("pointerleave", handlePointerLeave);
     }
 
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        stopLoop();
+      } else if (heroObserver.takeRecords().length > 0 || container.getBoundingClientRect().top < window.innerHeight) {
+        startLoop();
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     const heroObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -540,6 +550,7 @@ export function ModelViewer() {
       disposed = true;
       stopLoop();
       heroObserver.disconnect();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       window.removeEventListener("resize", handleResize);
 
       if (!isTouchDevice) {
